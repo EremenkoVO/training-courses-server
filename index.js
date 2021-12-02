@@ -1,8 +1,16 @@
 require('dotenv').config();
-const express = require('express')();
+const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const router = require('./routers/index');
+
+const app = express();
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors());
+app.use('/api', router);
 
 const PORT = process.env.PORT;
 
@@ -12,15 +20,13 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    express.listen(PORT, () =>
-      console.log(`Sertver started on PORT = ${PORT}`),
-    );
+    app.listen(PORT, () => console.log(`Sertver started on PORT = ${PORT}`));
   } catch (e) {
     console.error(e);
   }
 };
 
-express.get('/', (res, req) => {
+app.get('/', (res, req) => {
   req.status(200).type('text/plan');
   req.send('Home Page');
 });
