@@ -1,9 +1,9 @@
-const UserModel = require('../models/UserModal');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
-const mailService = require('./MailService');
-const tokeService = require('./TokenService');
 const UserDto = require('../dtos/UserDto');
+const UserModel = require('../models/UserModal');
+const mailService = require('./MailService');
+const tokenService = require('./TokenService');
 
 class UserService {
   /**
@@ -27,11 +27,14 @@ class UserService {
       password: hashPassword,
       activationLink,
     });
-    await mailService.sendActivationMail(email, activationLink);
+    await mailService.sendActivationMail(
+      email,
+      `${process.env.API_URL}/api/activate/${activationLink}`,
+    );
 
     const userDto = new UserDto(user);
-    const tokens = tokeService.generateToken({ ...userDto });
-    await tokeService.saveToken(userDto.id, tokens.refreshToken);
+    const tokens = tokenService.generateToken({ ...userDto });
+    await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
     return {
       ...tokens,
