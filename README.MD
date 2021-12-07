@@ -1,4 +1,4 @@
-# TRAINING-COURSES
+# TRAINING-COURSES-SERVER
 
 ## For local development
 
