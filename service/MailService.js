@@ -11,6 +11,12 @@ class MailService {
       },
     });
   }
+
+  /**
+   * Отправка письма
+   * @param {*} to от кого
+   * @param {*} link ссылка
+   */
   async sendActivationMail(to, link) {
     await this.transporter.sendMail({
       from: process.env.SMTP_USER,

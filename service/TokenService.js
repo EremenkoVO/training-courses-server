@@ -3,7 +3,7 @@ const tokenModel = require('../models/TokenModal');
 
 class TokenService {
   /**
-   *
+   * Обновление токена
    * @param {*} payload
    * @returns
    */
@@ -22,7 +22,7 @@ class TokenService {
   }
 
   /**
-   *
+   * Сохранение токена
    * @param {*} user
    * @param {*} refreshToken
    */
