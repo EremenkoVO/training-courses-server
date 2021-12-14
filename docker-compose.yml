@@ -1,0 +1,29 @@
+version: '3.5'
+
+networks:
+  net:
+    name: dev_network
+
+services:
+  mongo:
+    image: mongo:4.4.10
+    networks:
+      - net
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: test
+  nest:
+    networks:
+      - net
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nest:latest
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
+      DB_URL: 'mongodb://root:test@mongo:27017/'
+    depends_on:
+      - mongo
+    restart: on-failure
