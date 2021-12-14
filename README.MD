@@ -1,10 +1,31 @@
-# TRAINING-COURSES
+## Installation
 
-## For local development
+```bash
+$ npm install
+```
 
-```shell
-# run mongodb and server.
-➜ docker-compose up --build -d
-# for stop
-➜ docker-compose down
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
