@@ -18,4 +18,4 @@ import { ProfileModel } from './profile.model';
   ],
   providers: [ProfileService],
 })
-export class ProductModule {}
+export class ProfileModule {}
