@@ -29,8 +29,8 @@ export class ProfileController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('email')
-  async get(email: string) {
+  @Get(':email')
+  async findByEmail(@Param('email') email: string) {
     const profile = await this.profileService.findByEmail(email);
     if (!profile) {
       throw new NotFoundException(PROFILE_NOT_FOUND_ERROR);
