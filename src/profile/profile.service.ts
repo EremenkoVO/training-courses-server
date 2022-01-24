@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ModelType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
-import { CreateProfileDto } from './dto/CreateProfile.dto';
+import { CreateProfileDto } from './dto/createProfile.dto';
 import { ProfileModel } from './profile.model';
 
 @Injectable()

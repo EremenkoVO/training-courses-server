@@ -16,5 +16,5 @@ export class ProfileModel extends TimeStamps {
   secondName: string;
 
   @prop()
-  age: string;
+  age: number;
 }

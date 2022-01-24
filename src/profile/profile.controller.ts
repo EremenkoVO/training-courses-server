@@ -11,7 +11,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { CreateProfileDto } from './dto/CreateProfile.dto';
+import { CreateProfileDto } from './dto/createProfile.dto';
 import { ProfileService } from './profile.service';
 import { IdValidationPipe } from 'src/pipes/id-validation.pipe';
 import { ProfileModel } from './profile.model';
