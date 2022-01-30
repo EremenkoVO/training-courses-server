@@ -21,7 +21,6 @@ import { PROFILE_NOT_FOUND_ERROR } from './dto/profile.constants';
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
-  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Post('create')
   async creat(@Body() dto: CreateProfileDto) {

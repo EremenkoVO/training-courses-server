@@ -15,4 +15,7 @@ export class CreateProfileDto {
 
   @IsNumber()
   age: number;
+
+  @IsString()
+  id_account: string;
 }
