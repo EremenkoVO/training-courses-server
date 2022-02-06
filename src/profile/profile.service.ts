@@ -19,6 +19,10 @@ export class ProfileService {
     return this.profileModel.findByIdAndUpdate(id, dto, { new: true }).exec();
   }
 
+  async getProfile(id_account: string) {
+    return this.profileModel.findOne({ id_account }).exec();
+  }
+
   async findByEmail(email: string) {
     return this.profileModel.findOne({ email }).exec();
   }

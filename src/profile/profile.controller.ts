@@ -27,6 +27,15 @@ export class ProfileController {
     return this.profileService.create(dto);
   }
 
+  @UsePipes(new ValidationPipe())
+  @Get(':id_account')
+  async getProfile(@Param('id_account') id_account: string) {
+    const profile = await this.profileService.getProfile(id_account);
+    if (!profile) {
+      throw new NotFoundException(PROFILE_NOT_FOUND_ERROR);
+    }
+  }
+
   @UseGuards(JwtAuthGuard)
   @Get(':email')
   async findByEmail(@Param('email') email: string) {
