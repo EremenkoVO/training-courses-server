@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { AuthModule } from './auth/auth.module';
 import { getMongoConfig } from './configs/mongo.config';
-import { CoursesModule } from './courses/Courses.module';
+import { CoursesModule } from './courses/сourses.module';
 import { ProfileModule } from './profile/profile.module';
 
 @Module({
