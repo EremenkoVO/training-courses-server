@@ -17,7 +17,4 @@ export class ProfileModel extends TimeStamps {
 
   @prop()
   age: number;
-
-  @prop()
-  id_account: string;
 }

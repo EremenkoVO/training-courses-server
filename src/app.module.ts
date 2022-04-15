@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { AuthModule } from './auth/auth.module';
 import { getMongoConfig } from './configs/mongo.config';
+import { CoursesModule } from './courses/Courses.module';
 import { ProfileModule } from './profile/profile.module';
 
 @Module({
@@ -15,6 +16,7 @@ import { ProfileModule } from './profile/profile.module';
     }),
     AuthModule,
     ProfileModule,
+    CoursesModule,
   ],
 })
 export class AppModule {}
