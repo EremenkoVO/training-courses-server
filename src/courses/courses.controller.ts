@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Post,
+  Query,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -24,8 +25,12 @@ export class CoursesController {
 
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
-  @Get('all')
-  async getCoursees() {
-    const courses = await this.coursesService.getCourses();
+  @Get()
+  async getCoursees(@Query('courseId') courseId: string) {
+    if (courseId == null) {
+      return await this.coursesService.findAll();
+    } else {
+      return await this.coursesService.findById(courseId);
+    }
   }
 }
